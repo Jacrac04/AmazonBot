@@ -49,7 +49,34 @@ class AmazonBot():
                 print('In stock')
             except:
                 print('Not in stock')
-    
+
+    #Checks What the Xbox Button is 
+    def findXboxButton(self):
+        self.driver.get('https://www.amazon.co.uk/Xbox-RRT-00007-Series-X/dp/B08H93GKNJ/')
+
+        #Accepts Cookies
+        try:
+            self.driver.find_element_by_id("sp-cc-accept").click()
+        except:
+            pass
+        sleep(1)
+
+        #Trys all product options till error which indicates all have been tried or Xbox Series X has been found
+        try:
+            i = 0
+            while True:
+                selectbtn = self.driver.find_element_by_id(f'edition_{i}')
+                #Sees if button value is eqal to Xbox Series X
+                if selectbtn.text == 'Xbox Series X':
+                    self.xboxNumber = i
+                    break
+                i=i+1
+        except:
+            #Needs proper error handling adding
+            print('Error')
+
+
+
     #Checks Stock
     def xboxCheckStock(self):
         #Gets Xbox Page
@@ -62,8 +89,8 @@ class AmazonBot():
             pass
         sleep(1)
 
-        #Selects the Xbox - Needs to add a autofind this button as it can change
-        selectbtn = self.driver.find_element_by_id('edition_5')
+        #Selects the Xbox
+        selectbtn = self.driver.find_element_by_id(f'edition_{self.xboxNumber}')
         if selectbtn.text == 'Xbox Series X':
             selectbtn.click()
             #self.driver.find_element_by_partial_link_text('Xbox Series X')
@@ -81,6 +108,7 @@ class AmazonBot():
             sleep(1)
         #This runs when the btutton is wrong
         else:
+            #Needs proper error handling adding
             print('Error')
 
     #Need creating
@@ -95,6 +123,9 @@ def AlertUser():
 
 
 bot = AmazonBot(WEB_PAGES)
+
+
+bot.findXboxButton()
 
 #Runs while not in stock/availible
 stock = False
