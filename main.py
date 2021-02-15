@@ -76,13 +76,15 @@ class AmazonBot():
             sleep(1)
         else:
             print('Error')
+    def Buy(self):
+        pass
         
 
 bot = AmazonBot(['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=='])
-#bot.login('@gmail.com', '')
-#bot.checkStock() 
+
 stock = False
 while not stock:
     stock = bot.xboxCheckStock()
 
-
+bot.login('@gmail.com', '')
+bot.Buys
