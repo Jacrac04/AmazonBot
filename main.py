@@ -4,7 +4,11 @@ from time import sleep
 
 
 
-TIME_BETWEEN_CHECKS = 1
+TIME_BETWEEN_CHECKS = 5
+AMOUNT_TO_BUY = 1
+WEB_PAGES = ['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==']
+
+
 
 
 class AmazonBot():
@@ -71,13 +75,19 @@ class AmazonBot():
         pass
         
 
-bot = AmazonBot(['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=='])
+def AlertUser():
+    pass
 
+
+
+
+bot = AmazonBot(WEB_PAGES)
 stock = False
 while not stock:
     stock = bot.xboxCheckStock()
     sleep(TIME_BETWEEN_CHECKS)
 
+AlertUser()
 bot.login('@gmail.com', '')
 bot.Buy()
 
