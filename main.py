@@ -1,6 +1,6 @@
 from selenium import webdriver
 from time import sleep
-
+from selenium.webdriver.chrome.options import Options
 
 
 #Constants to be added to settings
@@ -16,7 +16,7 @@ WEB_PAGES = ['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07
 
 class AmazonBot():
     def __init__(self, WEB_PAGES):
-        self.driver = webdriver.Chrome('chromedriver.exe')
+        self.driver = webdriver.Chrome()#chrome_options=chrome_options)
         self.WEB_PAGES = WEB_PAGES
 
     def login(self, username, password):
