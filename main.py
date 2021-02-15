@@ -21,11 +21,13 @@ class AmazonBot():
 
     def login(self, username, password):
         self.driver.get('https://www.amazon.co.uk/')
+        #Accepts Cookies
         try:
             self.driver.find_element_by_id("sp-cc-accept").click()
         except:
             pass
-        self.driver.find_element_by_id("sp-cc-accept").click()
+        
+        #Enters User details
         self.driver.find_element_by_id("nav-link-accountList").click()
         self.driver.find_element_by_id("ap_email").send_keys(username)    
         self.driver.find_element_by_id("continue").click()
@@ -34,6 +36,17 @@ class AmazonBot():
         self.driver.find_element_by_id("ap_password").clear()
         self.driver.find_element_by_id("ap_password").send_keys(password)
         self.driver.find_element_by_id("signInSubmit").click()
+        sleep(1)
+
+        #If they need to use 2fa gives longer
+        url = self.driver.current_url
+        if url.startswith('https://www.amazon.co.uk/ap/signin'):
+            sleep(120)
+        else:
+            sleep(10)
+        #Enable Oneclick purchase
+        self.driver.get('https://www.amazon.co.uk/cpe/yourpayments/settings/manageoneclick')
+        self.driver.find_element_by_css_selector('.a-switch-control').click()
 
     #Unused/Needs improving
     def checkStock(self):
@@ -125,7 +138,7 @@ def AlertUser():
 bot = AmazonBot(WEB_PAGES)
 
 
-bot.findXboxButton()
+# bot.findXboxButton()
 
 #Runs while not in stock/availible
 stock = False
@@ -134,6 +147,9 @@ while not stock:
     sleep(TIME_BETWEEN_CHECKS)
 
 AlertUser()
-bot.login('@gmail.com', '')
+input()
+username = input('username')
+password = input('password')
+bot.login(username, password)
 bot.Buy()
 
