@@ -137,6 +137,9 @@ def AlertUser():
 
 bot = AmazonBot(WEB_PAGES)
 
+username = input('username')
+password = input('password')
+bot.login(username, password)
 
 bot.findXboxButton()
 
@@ -147,9 +150,6 @@ while not stock:
     sleep(TIME_BETWEEN_CHECKS)
 
 AlertUser()
-input()
-username = input('username')
-password = input('password')
 bot.login(username, password)
 bot.Buy()
 
