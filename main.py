@@ -20,12 +20,12 @@ class AmazonBot():
             pass
         self.driver.find_element_by_id("sp-cc-accept").click()
         self.driver.find_element_by_id("nav-link-accountList").click()
-        self.driver.find_element_by_id("ap_email").send_keys('***REMOVED***')    
+        self.driver.find_element_by_id("ap_email").send_keys('username')    
         self.driver.find_element_by_id("continue").click()
         sleep(0.5)
         self.driver.find_element_by_name('rememberMe').click()
         self.driver.find_element_by_id("ap_password").clear()
-        self.driver.find_element_by_id("ap_password").send_keys('***REMOVED***')
+        self.driver.find_element_by_id("ap_password").send_keys(password)
         self.driver.find_element_by_id("signInSubmit").click()
 
     def checkStock(self):
