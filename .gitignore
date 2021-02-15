@@ -1210,3 +1210,5 @@ Lib/site-packages/urllib3-1.26.3.dist-info/WHEEL
 .vscode/settings.json
 pyvenv.cfg
 python3
+BFG.exe
+bfg-1.13.0.jar
