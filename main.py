@@ -47,6 +47,7 @@ class AmazonBot():
         #Enable Oneclick purchase
         self.driver.get('https://www.amazon.co.uk/cpe/yourpayments/settings/manageoneclick')
         self.driver.find_element_by_css_selector('.a-switch-control').click()
+        sleep(2)
 
     #Unused/Needs improving
     def checkStock(self):
