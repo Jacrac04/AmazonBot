@@ -126,7 +126,8 @@ class AmazonBot():
 
     #Need creating
     def Buy(self):
-        pass
+        buyNow = self.driver.find_element_by_id('buy-now-button')
+        buyNow.click()
         
 #Needs creating
 def AlertUser():
