@@ -107,7 +107,7 @@ class AmazonBot():
         if selectbtn.text == 'Xbox Series X':
             selectbtn.click()
             #self.driver.find_element_by_partial_link_text('Xbox Series X')
-            sleep(1)
+            sleep(2)
 
             #Looks for buy now
             try:
