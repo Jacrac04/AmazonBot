@@ -138,7 +138,7 @@ def AlertUser():
 bot = AmazonBot(WEB_PAGES)
 
 
-# bot.findXboxButton()
+bot.findXboxButton()
 
 #Runs while not in stock/availible
 stock = False
