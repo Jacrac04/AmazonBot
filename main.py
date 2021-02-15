@@ -3,17 +3,8 @@ from time import sleep
 
 
 
-# driver = webdriver.Chrome('chromedriver.exe')
-# driver.get('https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==')
-# buyNow = driver.find_element_by_id('buy-now-button')         
-# buyNow.click()
-# driver.find_element_by_id("ap_email").send_keys('***REMOVED***')    
-# driver.find_element_by_id("continue").click()
-   
-# sleep(0.5)
-# driver.find_element_by_id("ap_password").clear()
-# driver.find_element_by_id("ap_password").send_keys('***REMOVED***')
-# driver.find_element_by_id("signInSubmit").click()
+
+TIME_BETWEEN_CHECKS = 1
 
 
 class AmazonBot():
@@ -85,6 +76,7 @@ bot = AmazonBot(['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp
 stock = False
 while not stock:
     stock = bot.xboxCheckStock()
+    sleep(TIME_BETWEEN_CHECKS)
 
 bot.login('@gmail.com', '')
 bot.Buy()
