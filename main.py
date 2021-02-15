@@ -87,4 +87,5 @@ while not stock:
     stock = bot.xboxCheckStock()
 
 bot.login('@gmail.com', '')
-bot.Buys
+bot.Buy()
+
