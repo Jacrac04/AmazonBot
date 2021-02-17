@@ -2,7 +2,7 @@
 ## This is designed for Xbox Series X
 This is still a working progress 
 
-## To Set up
+## To Set up On Pi
 
 Make sure python 3.6 or greater is installed
 
