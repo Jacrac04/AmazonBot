@@ -8,34 +8,45 @@ This is still a working progress
 
 Make sure python 3.6 or greater is installed
 
-Then run:
+1. Then run:
 
-* `sudo apt-get install git`
+    * `sudo apt-get install git`
 
-* `sudo apt-get install chromium-chromedriver`
+    * `sudo apt-get install chromium-chromedriver`
 
-* `git clone https://github.com/Jacrac04/AmazonBot.git`
+    * `git clone https://github.com/Jacrac04/AmazonBot.git`
 
-* `cd AmazonBot`
+    * `cd AmazonBot`
 
-* `pip install requirements.txt`
+    * `pip install requirements.txt`
 
-Rename `example_config.ini` to `config.ini` 
+2. Rename `example_config.ini` to `config.ini` 
 
-Inside `config.ini` set your username and password
+3. Inside `config.ini` set your username and password
 
-Then run:
-* `python3 main.py`
+4. Then run:
+    * `python3 main.py`
 
 ***
 
 ## To Set up On Windows
 
 1. Make sure python 3.6 or greater is installed
+
 2. Download Chrome Driver for your chrome version from: https://chromedriver.chromium.org/downloads
+
 3. Download this repository
+
 4. Unzip it and install `requirements.txt`
+
 5. Rename `example_config.ini` to `config.ini` 
+
 6. Inside `config.ini` set `CHROME_DRIVER_LOCATION` to the location of your `chromedriver.exe`
+
 7. Inside `config.ini` set your username and password
+
 8. Then run `main.py`
+
+***
+
+
