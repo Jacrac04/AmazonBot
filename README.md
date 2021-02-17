@@ -51,7 +51,8 @@ Make sure python 3.6 or greater is installed
 
 ## Todo
 
-- [ ] Finsih general buying part
+- [x] Finsih general buying part
+  - [ ] Test general buying part
 - [ ] Improve the main part (add multiple buys etc)
 - [ ] Read email for verfication
 - [ ] Message when in stock 
