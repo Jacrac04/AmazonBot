@@ -14,11 +14,10 @@ TIME_BETWEEN_CHECKS = int(parser.get('Amazon_Bot', 'TIME_BETWEEN_CHECKS'))
 AMOUNT_TO_BUY = int(parser.get('Amazon_Bot', 'AMOUNT_TO_BUY'))
 CHROME_DRIVER_LOCATION = Path(parser.get('Selenium_Settings', 'CHROME_DRIVER_LOCATION'))
 
-
 #Unused
 WEB_PAGES = ['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==']
 
-
+bought = 0
 
 class AmazonBot():
     def __init__(self, WEB_PAGES):
@@ -161,6 +160,10 @@ class AmazonBot():
         
 #Needs creating
 def AlertUser():
+    #Add:
+    # - Discord Notifications
+    # - Instagram Notifications
+    # - Email Notifications
     pass
 
 
@@ -182,5 +185,12 @@ while not stock:
 
 AlertUser()
 bot.login(username, password)
-bot.Buy()
+
+while bought <= AMOUNT_TO_BUY:
+    try:
+        bot.Buy()
+        bought = bought + 1
+    except:
+        break
+        print('Error buying')
 
