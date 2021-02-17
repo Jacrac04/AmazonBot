@@ -1,6 +1,7 @@
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.chrome.options import Options
+from pathlib import Path
 
 
 #Constants to be added to settings
@@ -11,7 +12,7 @@ AMOUNT_TO_BUY = 1
 #Unused
 WEB_PAGES = ['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==']
 
-CHROME_DRIVER_LOCATION = 'chromedriver.exe'
+CHROME_DRIVER_LOCATION = Path('chromedriver.exe')
 
 
 
@@ -24,6 +25,7 @@ class AmazonBot():
                 self.driver = webdriver.Chrome()
             except:
                 print('Cant find valid Chrome driver')
+                quit()
         self.WEB_PAGES = WEB_PAGES
 
     def login(self, username, password):
