@@ -2,6 +2,7 @@
 ## This is designed for Xbox Series X
 This is still a working progress 
 
+***
 
 ## To Set up On Pi
 
@@ -19,8 +20,14 @@ Then run:
 
 * `pip install requirements.txt`
 
+Rename `example_config.ini` to `config.ini` 
+
+Inside `config.ini` set your username and password
+
+Then run:
 * `python3 main.py`
 
+***
 
 ## To Set up On Windows
 
@@ -28,5 +35,7 @@ Then run:
 2. Download Chrome Driver for your chrome version from: https://chromedriver.chromium.org/downloads
 3. Download this repository
 4. Unzip it and install `requirements.txt`
-5. Inside `main.py` set `CHROME_DRIVER_LOCATION` to the location of your `chromedriver.exe`
-6. Then run `main.py`
+5. Rename `example_config.ini` to `config.ini` 
+6. Inside `config.ini` set `CHROME_DRIVER_LOCATION` to the location of your `chromedriver.exe`
+7. Inside `config.ini` set your username and password
+8. Then run `main.py`
