@@ -66,7 +66,8 @@ class AmazonBot():
                 pass
             
             try:
-                buyNow = self.driver.find_element_by_id('buy-now-button')         
+                buyNow = self.driver.find_element_by_id('buy-now-button')  
+                buyNow.click()       
                 print('In stock')
             except:
                 print('Not in stock')
