@@ -1,6 +1,6 @@
 from selenium import webdriver
 from time import sleep
-
+from selenium.webdriver.chrome.options import Options
 
 
 #Constants to be added to settings
@@ -11,12 +11,19 @@ AMOUNT_TO_BUY = 1
 #Unused
 WEB_PAGES = ['https://www.amazon.co.uk/BIC-Cello-Comfort-Ballpoint-Medium/dp/B07RY6ZC83/ref=sr_1_2_sspa?dchild=1&keywords=pen&qid=1613387800&sr=8-2-spons&psc=1&smid=A2RCZCHI7CGC8P&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFTS0tQSkFYRkRNMEYmZW5jcnlwdGVkSWQ9QTAwNzI2MDMzOVdOSVhDV1lKMDc1JmVuY3J5cHRlZEFkSWQ9QTA4NjIxMjczVFBRQkVHSVhKM0EzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==']
 
+CHROME_DRIVER_LOCATION = 'chromedriver.exe'
 
 
 
 class AmazonBot():
     def __init__(self, WEB_PAGES):
-        self.driver = webdriver.Chrome('chromedriver.exe')
+        try:
+            self.driver = webdriver.Chrome(CHROME_DRIVER_LOCATION)
+        except:
+            try:
+                self.driver = webdriver.Chrome()
+            except:
+                print('Cant find valid Chrome driver')
         self.WEB_PAGES = WEB_PAGES
 
     def login(self, username, password):
@@ -109,7 +116,7 @@ class AmazonBot():
         if selectbtn.text == 'Xbox Series X':
             selectbtn.click()
             #self.driver.find_element_by_partial_link_text('Xbox Series X')
-            sleep(1)
+            sleep(2)
 
             #Looks for buy now
             try:
@@ -144,7 +151,6 @@ username = input('username')
 password = input('password')
 bot.login(username, password)
 
-
 bot.findXboxButton()
 
 #Runs while not in stock/availible
@@ -154,9 +160,6 @@ while not stock:
     sleep(TIME_BETWEEN_CHECKS)
 
 AlertUser()
-input()
-username = input('username')
-password = input('password')
 bot.login(username, password)
 bot.Buy()
 
